@@ -12,13 +12,3 @@ COPY .echo/echo_password.sh /etc/apache2/
 # Add debugging help if you need it
 RUN echo "LogLevel debug" >> /etc/apache2/apache2.conf
 
-
-#########################
-# copies an html file to the 'demo' directory as a test
-
-# Convenient working directory
-#WORKDIR /var/www/html/demo
-
-# Copy the project files we need
-#COPY index.html ./
-
