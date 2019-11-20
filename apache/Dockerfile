@@ -7,6 +7,8 @@ RUN a2enmod authnz_ldap
 RUN a2enmod proxy
 RUN a2enmod proxy_http
 RUN a2enmod proxy_wstunnel
+RUN a2enmod rewrite
+RUN a2enmod headers
 
 # Add ldap rules to apache's conf-enabled dir
 COPY ldap-gsi.conf /etc/apache2/conf-enabled/
