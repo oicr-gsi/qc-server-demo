@@ -2,8 +2,11 @@
 # includes ldap modules; could later modify to use httpd
 FROM php:7-apache
 
-# Enable Apache ldap auth module
+# Enable Apache ldap auth and proxy modules
 RUN a2enmod authnz_ldap
+RUN a2enmod proxy
+RUN a2enmod proxy_http
+RUN a2enmod proxy_wstunnel
 
 # Add ldap rules to apache's conf-enabled dir
 COPY ldap-gsi.conf /etc/apache2/conf-enabled/
