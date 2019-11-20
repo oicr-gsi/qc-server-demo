@@ -9,11 +9,10 @@ services:
     volumes:
       - ./apache/demo:/var/www/html/demo
     links:
-      - shiny
-    depends_on:
-      - shiny
-
-  shiny:
+      - shiny_app
+      - unshiny_app
+      
+  shiny_app:
     image: shinytglqc_shiny:latest
     restart: always
     # Setting this to something other than 'root' will cause shiny apps not to
@@ -23,15 +22,29 @@ services:
     # comment out lines below to enable application logs STDOUT output
     environment:
       - APPLICATION_LOGS_TO_STDOUT=false
-    ports:
-      - '3838:3838'
+    expose:
+      - '3838'
     volumes:
       - './shiny_logs:/var/log/shiny-server'
       # Mount wherever the data is onto the shiny container
       - './data:/srv/shiny-server/data'
 
+
+
+  # a simpler webapp based on the docker-compose tutorial
+  # https://docs.docker.com/compose/gettingstarted/
+  unshiny_app:
+    build: unshiny
+    expose:
+      - "5000"
+
+  redis:
+    image: "redis:alpine"
+      
     # browse to localhost:3838 to view the shiny dashboard
     # TODO:
     # - LDAP authentication for shiny. Configure Apache with the <Location> tag?
     # - More meaningful URL for shiny. May be needed/helpful for authentication. Is http://shiny:3838 sufficient?
     # - Test on Openstack
+
+  
