@@ -16,7 +16,8 @@ docker-compose build
 docker-compose up
 ```
 
-Navigate to [http://0.0.0.0/shiny] and login with your LDAP username and password.
+Navigate to [http://0.0.0.0/shiny](http://0.0.0.0/shiny) and login with your LDAP
+username and password.
 
 
 ## Notes
