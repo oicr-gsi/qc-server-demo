@@ -1,3 +1,5 @@
 *~
 .echo
 *.log
+ssl.crt
+ssl.key

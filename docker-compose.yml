@@ -7,7 +7,21 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./apache/demo:/var/www/html/demo
+      - type: bind
+        source: "./apache/demo"
+        target: "/var/www/html/demo"
+        volume:
+          nocopy: true
+      - type: bind
+        source: "./auth/ssl.crt"
+        target: "/etc/apache2/ssl/ssl.crt"
+        volume:
+          nocopy: true
+      - type: bind
+        source: "./auth/ssl.key"
+        target: "/etc/apache2/ssl/ssl.key"
+        volume:
+          nocopy: true
     links:
       - shiny_app
       - unshiny_app
@@ -28,8 +42,6 @@ services:
       - './shiny_logs:/var/log/shiny-server'
       # Mount wherever the data is onto the shiny container
       - './data:/srv/shiny-server/data'
-
-
 
   # a simple webapp based on the docker-compose tutorial
   # https://docs.docker.com/compose/gettingstarted/
