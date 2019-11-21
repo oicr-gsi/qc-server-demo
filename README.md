@@ -18,7 +18,7 @@ docker-compose up
 ```
 
 Navigate to [http://0.0.0.0/shiny](http://0.0.0.0/shiny) or 
-[http://0.0.0.0/shiny](http://0.0.0.0/shiny) and login with your LDAP
+[http://0.0.0.0/unshiny](http://0.0.0.0/unshiny) and login with your LDAP
 username and password.
 
 
