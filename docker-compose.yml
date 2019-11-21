@@ -31,7 +31,7 @@ services:
 
 
 
-  # a simpler webapp based on the docker-compose tutorial
+  # a simple webapp based on the docker-compose tutorial
   # https://docs.docker.com/compose/gettingstarted/
   unshiny_app:
     build: unshiny
@@ -41,10 +41,3 @@ services:
   redis:
     image: "redis:alpine"
       
-    # browse to localhost:3838 to view the shiny dashboard
-    # TODO:
-    # - LDAP authentication for shiny. Configure Apache with the <Location> tag?
-    # - More meaningful URL for shiny. May be needed/helpful for authentication. Is http://shiny:3838 sufficient?
-    # - Test on Openstack
-
-  
